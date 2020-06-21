@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="jquery.js"></script>
+</head>
+<body>
+    <style>
+        .success{
+            display: none;
+        }
+
+        p{
+            font-size: 16px;
+        }
+
+        input{
+            height: 25px;
+            border: 1px solid #000;
+            border-radius: 5px;
+            padding: 5px 0 5px 15px;
+        }
+        
+        .btn{
+            height: 35px;
+            background-color: rgb(53, 114, 247);
+            border: none;
+            border-radius: 5px;
+            padding: 0 10px;
+            color: #fff;
+
+        }
+
+        .main{
+            min-width: 250px;
+        }
+    </style>
+
+    <div class="content main">
+        <input type="text" value="" id="clientName">
+        <button class="btn">Поиск</button>
+    </div>
+    <div class="success main">
+        <p>Операция совершена успешно</p>
+        <hr>
+        
+        
+    </div>
+    
+
+    <script src="popup.js"></script>
+</body>
+</html>
