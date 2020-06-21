@@ -1,6 +1,7 @@
 $(document).ready(function () {
     const content = document.querySelector('.content');
     const success = document.querySelector('.success');
+    const error = document.querySelector('.error');
     const clientValue = document.querySelector('#clientName');
     const btn = document.querySelector('.btn');
 
@@ -14,23 +15,28 @@ $(document).ready(function () {
             data: data,
             success: (response) => {
                 const data = response;
-                for(const client of data.clients){
-                    const clientElement = document.createElement('div');
-                    clientElement.className = "client";
-                    for(const field in client){
-                       const fieldElem = document.createElement('p');
-                       console.log(client[field]);
-                       fieldElem.className = field;
-                       fieldElem.innerHTML = `<b>${field}</b> : ${client[field]}`;
-                       clientElement.appendChild(fieldElem);
+                if(!data.error){
+                    for(const client of data.clients){
+                        const clientElement = document.createElement('div');
+                        clientElement.className = "client";
+                        for(const field in client){
+                        const fieldElem = document.createElement('p');
+                        console.log(client[field]);
+                        fieldElem.className = field;
+                        fieldElem.innerHTML = `<b>${field}</b> : ${client[field]}`;
+                        clientElement.appendChild(fieldElem);
+                        }
+                        const hrElem = document.createElement("hr");
+                        success.appendChild(clientElement);
+                        success.appendChild(hrElem);
+                        content.style.display = 'none';
+                        success.style.display = 'block';
                     }
-                    const hrElem = document.createElement("hr");
-                    success.appendChild(clientElement);
-                    success.appendChild(hrElem);
+                }else{
+                    error.style.display = 'block';
                 }
 
-                content.style.display = 'none';
-                success.style.display = 'block';
+                
             }
         })
         
