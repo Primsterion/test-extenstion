@@ -29,7 +29,6 @@ $(document).ready(function () {
                         clientElement.className = "client";
                         for(const field in client){
                             const fieldElem = document.createElement('p');
-                            console.log(client[field]);
                             fieldElem.className = field;
                             fieldElem.innerHTML = `<b>${field}</b> : ${client[field]}`;
                             clientElement.appendChild(fieldElem);
