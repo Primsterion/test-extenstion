@@ -35,21 +35,52 @@
             min-width: 250px;
         }
 
-        .error{
+        .loading{
+            align-self: center;
+            justify-content: center;
+        }
+
+        .circle{
+            width: 30px;
+            height: 30px;
+            border: 2px solid #000;
+            animation: .8s loading infinite;
+        }
+
+        .error,
+        .not_found,
+        .loading{
             display: none;
         }
-    </style>
 
+        @keyframes loading{
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <div class="loading">
+        <div class="circle"></div>
+    </div>
     <div class="content main">
         <input type="text" value="" id="clientName">
-        <button class="btn">Поиск</button>
+        <button class="btn btn-search">Поиск</button>
     </div>
     <div class="success main">
         <p>Операция совершена успешно</p>
         <hr>
+        <div class="clients">
+            
+        </div>
+        <p class="not_found">Клиенты не найдены!</p>
+        <button class="btn btn-reset">Искать заново</button>
     </div>
     <div class="error main">
         <p>Произошла ошибка</p>
+        <button class="btn btn-reset">Искать заново</button>
     </div>
     
 
